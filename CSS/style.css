@@ -21,7 +21,7 @@ h1 {
 
 .boundary {
     display: flex;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgb(226, 223, 223), rgba(0, 0, 0, 0.5));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(226, 223, 223, 0.7), rgba(0, 0, 0, 0.5));
     align-items: center;
     justify-content: center;
     /* width: 50%; */
@@ -48,6 +48,7 @@ h1 {
     overflow-x: auto;
     text-align: center;
     user-select: none;
+    font-family: 'Besley', serif;
     min-height: 3vw;
 }
 
@@ -74,7 +75,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-image: linear-gradient(to right, rgba(235, 21, 57, 0.5), white, rgba(235, 21, 57, 0.5));
+    background-image: linear-gradient(to right, rgba(235, 21, 57, 0.5), rgba(255, 255, 255, 0.5), rgba(235, 21, 57, 0.5));
 }
 
 .menu-items {
@@ -96,6 +97,6 @@ h1 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 50% 50%;
     border: 2px solid red;
 }
