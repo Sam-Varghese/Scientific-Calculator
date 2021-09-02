@@ -12,7 +12,7 @@ h1 {
     background-color: rgb(241, 14, 71);
     align-items: center;
     justify-content: center;
-    border: 20px ridge black
+    border: 1vw ridge black
 }
 
 .boundary {
@@ -24,19 +24,21 @@ h1 {
     padding: 1vw;
     flex-wrap: wrap;
     margin: 1vw;
+    max-height: 20vw;
+    overflow: auto;
 }
 .center-1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 20px ridge white;
+    border: 1vw ridge white;
     /* flex-direction: column */
 }
 
 .display-content {
     width: 50%;
     color: black;
-    border: 20px ridge white;
+    border: 1vw ridge white;
     background-color: aqua;
     font-size: 3vw;
     overflow-x: auto;
@@ -67,7 +69,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-image: linear-gradient(to right, grey, white, grey);
+    background-image: linear-gradient(to right, rgb(235, 21, 57), white, rgb(235, 21, 57));
 }
 
 .menu-items {
@@ -84,4 +86,10 @@ h1 {
 
 .menu-items:hover {
     background-image: linear-gradient(to right, rgb(19, 240, 19), white, rgb(19, 240, 19));
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border: 2px solid red;
 }
