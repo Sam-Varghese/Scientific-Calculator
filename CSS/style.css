@@ -1,15 +1,19 @@
 html {
-    background-image: linear-gradient(to right, cyan, blue, cyan);
+    background-image: url("https://cdn.pixabay.com/photo/2021/08/19/10/20/circuit-board-6557683_960_720.jpg");
+    background-size: cover;
+    background-repeat: none;
 }
 
 h1 {
     font-size: 3vw;
     color: white;
+    font-family: 'Besley', serif;
+    background-color: rgba(0, 255, 255, 0.5);
 }
 
 .boundary-1 {
     display: flex;
-    background-color: rgb(241, 14, 71);
+    background-image: linear-gradient(to right, rgba(103, 233, 10, 0.5),white, rgba(103, 233, 10, 0.5));
     align-items: center;
     justify-content: center;
     border: 1vw ridge black
@@ -17,7 +21,7 @@ h1 {
 
 .boundary {
     display: flex;
-    background-image: linear-gradient(to right, black, white, black);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgb(226, 223, 223), rgba(0, 0, 0, 0.5));
     align-items: center;
     justify-content: center;
     /* width: 50%; */
@@ -39,7 +43,7 @@ h1 {
     width: 50%;
     color: black;
     border: 1vw ridge white;
-    background-color: aqua;
+    background-color: rgba(0, 255, 255, 0.5);
     font-size: 3vw;
     overflow-x: auto;
     text-align: center;
@@ -57,6 +61,7 @@ h1 {
     transition: all;
     transition-duration: 0.2s;
     user-select: none;
+    font-family: 'Besley', serif;
 }
 
 .calc-buttons:hover {
@@ -69,7 +74,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-image: linear-gradient(to right, rgb(235, 21, 57), white, rgb(235, 21, 57));
+    background-image: linear-gradient(to right, rgba(235, 21, 57, 0.5), white, rgba(235, 21, 57, 0.5));
 }
 
 .menu-items {
@@ -82,6 +87,7 @@ h1 {
     transition: all;
     transition-duration: 0.2s;
     user-select: none;
+    font-family: 'Besley', serif;
 }
 
 .menu-items:hover {

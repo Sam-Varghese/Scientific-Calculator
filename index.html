@@ -6,7 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="CSS/style.css" />
-  <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+    <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+
+    <!-- Heading font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Besley&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Numbers font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Besley&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h1 align="center">Calculator</h1>
@@ -50,7 +66,11 @@
         <div class="calc-buttons" id="8" onclick="input_statement(8)">8</div>
         <div class="calc-buttons" id="9" onclick="input_statement(9)">9</div>
       </div>
-      <div class="boundary" style="display: none; min-width: 14vw;" id="fx_boundary">
+      <div
+        class="boundary"
+        style="display: none; min-width: 14vw"
+        id="fx_boundary"
+      >
         <div class="calc-buttons" id="(" onclick="input_statement('()')">(</div>
         <div class="calc-buttons" id="(" onclick="input_statement('Sin()')">
           Sin()
@@ -80,7 +100,9 @@
     <script>
       function input_statement(text) {
         document.getElementById("display").innerHTML += text;
-        document.getElementById("result-section").innerHTML = math.evaluate(document.getElementById("display").innerHTML)
+        document.getElementById("result-section").innerHTML = math.evaluate(
+          document.getElementById("display").innerHTML
+        );
       }
 
       function display_fx() {
