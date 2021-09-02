@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
+    <h1 align="center">Calculator</h1>
+    <div class="boundary-1">
+      <div class="display-content" id="display"></div>
+      <br />
+    </div>
+    <br />
+    <br />
+    <div class="menu">
+          <div class="menu-items">
+              123
+          </div>
+          <div class="menu-items" onclick="display_fx()">
+            f(x)
+          </div>
+      </div>
+    <div class="center-1">
+      
+      <div class="boundary">
+        <div class="calc-buttons" id="AC" onclick = "all_clear()">AC</div>
+        <div class="calc-buttons" id="Del">Del</div>
+        <div class="calc-buttons" id="<">
+          <img src="Images/back_arrow.svg" alt="" height="45vw" />
+        </div>
+        <div class="calc-buttons" id=">">
+          <img src="Images/forward_arrow.svg" alt="" height="45vw" />
+        </div>
+        <div class="calc-buttons" id="+" onclick="input_statement('+')">+</div>
+        <div class="calc-buttons" id="-" onclick="input_statement('-')">-</div>
+        <div class="calc-buttons" id="/" onclick="input_statement('/')">/</div>
+        <div class="calc-buttons" id="*" onclick="input_statement('*')">*</div>
+        <div class="calc-buttons" id="^" onclick="input_statement('^')">
+          x<sup>y</sup>
+        </div>
+      </div>
+      <div class="boundary">
+        <div class="calc-buttons" id="0" onclick="input_statement(0)">0</div>
+        <div class="calc-buttons" id="1" onclick="input_statement(1)">1</div>
+        <div class="calc-buttons" id="2" onclick="input_statement(2)">2</div>
+        <div class="calc-buttons" id="3" onclick="input_statement(3)">3</div>
+        <div class="calc-buttons" id="4" onclick="input_statement(4)">4</div>
+        <div class="calc-buttons" id="5" onclick="input_statement(5)">5</div>
+        <div class="calc-buttons" id="6" onclick="input_statement(6)">6</div>
+        <div class="calc-buttons" id="7" onclick="input_statement(7)">7</div>
+        <div class="calc-buttons" id="8" onclick="input_statement(8)">8</div>
+        <div class="calc-buttons" id="9" onclick="input_statement(9)">9</div>
+      </div>
+      <div class="boundary" style="display: none;" id="fx_boundary">
+        
+        <div class="calc-buttons" id="(" onclick="input_statement('()')">(</div>
+        <div class="calc-buttons" id="(" onclick="input_statement('Sin()')">
+          Sin()
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('Tan()')">
+          Tan()
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('Cos()')">
+          Cos()
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('Cos()')">
+          Sin<sup>-1</sup>()
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('Cos()')">
+          Cos<sup>-1</sup>()
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('Cos()')">
+          Tan<sup>-1</sup>()
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function input_statement(text) {
+        document.getElementById("display").innerHTML += text;
+      }
+
+      function display_fx(){
+          document.getElementById("fx_boundary").style.display = "block"
+      }
+
+      function all_clear(){
+        document.getElementById("display").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

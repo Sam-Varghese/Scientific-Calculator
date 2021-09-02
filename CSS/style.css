@@ -1,0 +1,87 @@
+html {
+    background-image: linear-gradient(to right, cyan, blue, cyan);
+}
+
+h1 {
+    font-size: 3vw;
+    color: white;
+}
+
+.boundary-1 {
+    display: flex;
+    background-color: rgb(241, 14, 71);
+    align-items: center;
+    justify-content: center;
+    border: 20px ridge black
+}
+
+.boundary {
+    display: flex;
+    background-image: linear-gradient(to right, black, white, black);
+    align-items: center;
+    justify-content: center;
+    /* width: 50%; */
+    padding: 1vw;
+    flex-wrap: wrap;
+    margin: 1vw;
+}
+.center-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 20px ridge white;
+    /* flex-direction: column */
+}
+
+.display-content {
+    width: 50%;
+    color: black;
+    border: 20px ridge white;
+    background-color: aqua;
+    font-size: 3vw;
+    overflow-x: auto;
+    text-align: center;
+    user-select: none;
+    min-height: 3vw;
+}
+
+.calc-buttons {
+    border: 0.3vw ridge greenyellow;
+    padding: 2vw;
+    font-size: 2vw;
+    background-color: black;
+    color: white;
+    margin: 1vw;
+    transition: all;
+    transition-duration: 0.2s;
+    user-select: none;
+}
+
+.calc-buttons:hover {
+    border: 0.3vw ridge black;
+    background-color: rgb(70, 241, 22);
+    color: black
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: linear-gradient(to right, grey, white, grey);
+}
+
+.menu-items {
+    padding-right: 2vw;
+    padding-left: 2vw;
+    border: 10px ridge black;
+    font-size: 2vw;
+    background-image: linear-gradient(to right, gold, white, gold);
+    margin-right: 0.5vw;
+    transition: all;
+    transition-duration: 0.2s;
+    user-select: none;
+}
+
+.menu-items:hover {
+    background-image: linear-gradient(to right, rgb(19, 240, 19), white, rgb(19, 240, 19));
+}
