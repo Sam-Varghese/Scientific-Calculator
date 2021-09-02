@@ -25,15 +25,25 @@
     />
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io">
-<link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Images/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="Images/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
     <h1 align="center">Calculator</h1>
     <div class="boundary-1">
-      <div class="display-content" id="display"></div>
+      <input class="display-content" id="display" />
       <br />
     </div>
     <br />
@@ -45,17 +55,12 @@
     <div class="grid-container" id="grid-layout-1">
       <div class="boundary">
         <div class="calc-buttons" id="AC" onclick="all_clear()">AC</div>
-        <div class="calc-buttons" id="Del" onclick = "del_button()">Del</div>
-        <div class="calc-buttons" id="<">
-          <img src="Images/back_arrow.svg" alt="" height="45vw" />
-        </div>
-        <div class="calc-buttons" id=">">
-          <img src="Images/forward_arrow.svg" alt="" height="45vw" />
-        </div>
+        <div class="calc-buttons" id="Del" onclick="del_button()">Del</div>
         <div class="calc-buttons" id="+" onclick="input_statement('+')">+</div>
         <div class="calc-buttons" id="-" onclick="input_statement('-')">-</div>
         <div class="calc-buttons" id="/" onclick="input_statement('/')">/</div>
         <div class="calc-buttons" id="*" onclick="input_statement('*')">*</div>
+        <div class="calc-buttons" id="*" onclick="input_statement('.')">.</div>
         <div class="calc-buttons" id="^" onclick="input_statement('^')">
           x<sup>y</sup>
         </div>
@@ -78,13 +83,13 @@
         id="fx_boundary"
       >
         <div class="calc-buttons" id="(" onclick="input_statement('()')">(</div>
-        <div class="calc-buttons" id="(" onclick="input_statement('Sin()')">
+        <div class="calc-buttons" id="(" onclick="input_statement('sin()')">
           Sin()
         </div>
-        <div class="calc-buttons" id="(" onclick="input_statement('Tan()')">
+        <div class="calc-buttons" id="(" onclick="input_statement('tan()')">
           Tan()
         </div>
-        <div class="calc-buttons" id="(" onclick="input_statement('Cos()')">
+        <div class="calc-buttons" id="(" onclick="input_statement('cos()')">
           Cos()
         </div>
         <div class="calc-buttons" id="(" onclick="input_statement('Cos()')">
@@ -104,28 +109,39 @@
     </div>
 
     <script>
+      document
+        .getElementById("display")
+        .addEventListener("input", function evaluate_expression(evt) {
+          document.getElementById("result-section").innerHTML = math.evaluate(
+            this.value
+          );
+        });
 
       function input_statement(text) {
-        document.getElementById("display").innerHTML += text;
+        document.getElementById("display").value += text;
         document.getElementById("result-section").innerHTML = math.evaluate(
-          document.getElementById("display").innerHTML
+          document.getElementById("display").value
         );
       }
 
       function display_fx() {
-        document.getElementById("fx_boundary").style.display = "block";
-        document.getElementById("grid-layout-1").style.gridTemplateColumns = "33% 33% 33%";
+        document.getElementById("fx_boundary").style.display = "inline";
+        document.getElementById("grid-layout-1").style.gridTemplateColumns =
+          "33% 33% 33%";
       }
 
       function all_clear() {
-        document.getElementById("display").innerHTML = "";
+        document.getElementById("display").value = "";
         document.getElementById("result-section").innerHTML = "";
       }
 
-      function del_button(){
-        document.getElementById("display").innerHTML = document.getElementById("display").innerHTML.slice(0, document.getElementById("display").innerHTML.length-1);
+      function del_button() {
+        document.getElementById("display").value = document
+          .getElementById("display")
+          .value.slice(0, document.getElementById("display").value.length - 1);
         document.getElementById("result-section").innerHTML = math.evaluate(
-          document.getElementById("display").innerHTML)
+          document.getElementById("display").value
+        );
       }
     </script>
   </body>
