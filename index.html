@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
+    <title>Scientific Calculator</title>
     <link rel="stylesheet" href="CSS/style.css" />
     <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
 
@@ -41,9 +41,13 @@
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
-    <h1 align="center">Calculator</h1>
+    <h1 align="center">Scientific Calculator</h1>
     <div class="boundary-1">
-      <input class="display-content" id="display" placeholder="Enter the expression"/>
+      <input
+        class="display-content"
+        id="display"
+        placeholder="Enter the expression"
+      />
       <br />
     </div>
     <br />
@@ -82,7 +86,9 @@
         style="display: none; min-width: 14vw"
         id="fx_boundary"
       >
-        <div class="calc-buttons" id="(" onclick="input_statement('()')">( )</div>
+        <div class="calc-buttons" id="(" onclick="input_statement('()')">
+          ( )
+        </div>
         <div class="calc-buttons" id="(" onclick="input_statement('sin()')">
           Sin()
         </div>
@@ -113,8 +119,20 @@
         <div class="calc-buttons" id="(" onclick="input_statement('log()')">
           Log(num, base)
         </div>
-                <div class="calc-buttons" id="(" onclick="input_statement('abs()')">
+        <div class="calc-buttons" id="(" onclick="input_statement('abs()')">
           Abs()
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('gcd()')">
+          GCD(numbers)
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('lcm()')">
+          LCM(numbers)
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('ceil()')">
+          Ceil()
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('floor()')">
+          Floor()
         </div>
       </div>
     </div>
@@ -127,22 +145,32 @@
       document
         .getElementById("display")
         .addEventListener("input", function evaluate_expression(evt) {
-          if(isNaN(math.evaluate(
-            this.value)) == false || isNaN(math.evaluate(
-            this.value)) == infinity){
-          document.getElementById("result-section").innerHTML = math.evaluate(
-            this.value
-          );}
+          if (
+            ((isNaN(math.evaluate(this.value)) == false && this.value != "") ||
+            isNaN(math.evaluate(this.value)) == infinity)
+          ) {
+            document.getElementById("result-section").innerHTML = math.evaluate(
+              this.value
+            )
+          }else{
+              document.getElementById("result-section").innerHTML = ""
+            }
         });
 
       function input_statement(text) {
         document.getElementById("display").value += text;
-        if(isNaN(math.evaluate(
-          document.getElementById("display").value)) == false || isNaN(math.evaluate(
-          document.getElementById("display").value)) == infinity){
-        document.getElementById("result-section").innerHTML = math.evaluate(
-          document.getElementById("display").value
-        );}
+        if (
+          isNaN(math.evaluate(document.getElementById("display").value)) ==
+            false ||
+          isNaN(math.evaluate(document.getElementById("display").value)) ==
+            infinity
+        ) {
+          document.getElementById("result-section").innerHTML = math.evaluate(
+            document.getElementById("display").value
+          )
+        }else{
+            document.getElementById("result-section").innerHTML = ""
+          }
       }
 
       function display_fx() {
@@ -160,12 +188,18 @@
         document.getElementById("display").value = document
           .getElementById("display")
           .value.slice(0, document.getElementById("display").value.length - 1);
-          if(isNaN(math.evaluate(
-          document.getElementById("display").value)) == false || isNaN(math.evaluate(
-          document.getElementById("display").value)) == infinity){
-        document.getElementById("result-section").innerHTML = math.evaluate(
-          document.getElementById("display").value
-        );}
+        if (
+          isNaN(math.evaluate(document.getElementById("display").value)) ==
+            false ||
+          isNaN(math.evaluate(document.getElementById("display").value)) ==
+            infinity
+        ) {
+          document.getElementById("result-section").innerHTML = math.evaluate(
+            document.getElementById("display").value
+          )
+        }else{
+            document.getElementById("result-section").innerHTML = ""
+          }
       }
     </script>
   </body>
