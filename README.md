@@ -1,4 +1,8 @@
-<h1 align="center">Calculator</h1>
+<h1 align="center">Scientific Calculator</h1>
+
+<hr>
+
+<p align="center"><img src="Images/demo-image.png"></p>
 
 <hr>
 
