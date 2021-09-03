@@ -53,13 +53,16 @@
     <br />
     <br />
     <div class="menu">
-      <div class="menu-items">123</div>
-      <div class="menu-items" onclick="display_fx()">f(x)</div>
+      <div class="menu-item-active" id="basic-calculator">123</div>
+      <div class="menu-items" onclick="display_fx()" id="f(x)-calculator">f(x)</div>
     </div>
     <div class="grid-container" id="grid-layout-1">
       <div class="boundary">
         <div class="calc-buttons" id="AC" onclick="all_clear()">AC</div>
         <div class="calc-buttons" id="Del" onclick="del_button()">Del</div>
+        <div class="calc-buttons" id="(" onclick="input_statement('()')">
+          ( )
+        </div>
         <div class="calc-buttons" id="+" onclick="input_statement('+')">+</div>
         <div class="calc-buttons" id="-" onclick="input_statement('-')">-</div>
         <div class="calc-buttons" id="/" onclick="input_statement('/')">/</div>
@@ -86,9 +89,7 @@
         style="display: none; min-width: 14vw"
         id="fx_boundary"
       >
-        <div class="calc-buttons" id="(" onclick="input_statement('()')">
-          ( )
-        </div>
+        
         <div class="calc-buttons" id="(" onclick="input_statement('sin()')">
           Sin()
         </div>
@@ -142,19 +143,27 @@
     </div>
 
     <script>
+
+      document.getElementById("basic-calculator").onclick = ()=>{
+        document.getElementById("fx_boundary").style.display = "none";
+        document.getElementById("grid-layout-1").style.gridTemplateColumns = "50% 50%";
+        document.getElementById("basic-calculator").className = "menu-item-active";
+        document.getElementById("f(x)-calculator").className = "menu-items"
+      }
+
       document
         .getElementById("display")
         .addEventListener("input", function evaluate_expression(evt) {
           if (
-            ((isNaN(math.evaluate(this.value)) == false && this.value != "") ||
-            isNaN(math.evaluate(this.value)) == infinity)
+            (isNaN(math.evaluate(this.value)) == false && this.value != "") ||
+            isNaN(math.evaluate(this.value)) == infinity
           ) {
             document.getElementById("result-section").innerHTML = math.evaluate(
               this.value
-            )
-          }else{
-              document.getElementById("result-section").innerHTML = ""
-            }
+            );
+          } else {
+            document.getElementById("result-section").innerHTML = "";
+          }
         });
 
       function input_statement(text) {
@@ -167,16 +176,18 @@
         ) {
           document.getElementById("result-section").innerHTML = math.evaluate(
             document.getElementById("display").value
-          )
-        }else{
-            document.getElementById("result-section").innerHTML = ""
-          }
+          );
+        } else {
+          document.getElementById("result-section").innerHTML = "";
+        }
       }
 
       function display_fx() {
         document.getElementById("fx_boundary").style.display = "inline";
         document.getElementById("grid-layout-1").style.gridTemplateColumns =
           "33% 33% 33%";
+        document.getElementById('basic-calculator').className = "menu-items"
+        document.getElementById("f(x)-calculator").className = "menu-item-active"
       }
 
       function all_clear() {
@@ -196,10 +207,10 @@
         ) {
           document.getElementById("result-section").innerHTML = math.evaluate(
             document.getElementById("display").value
-          )
-        }else{
-            document.getElementById("result-section").innerHTML = ""
-          }
+          );
+        } else {
+          document.getElementById("result-section").innerHTML = "";
+        }
       }
     </script>
   </body>
