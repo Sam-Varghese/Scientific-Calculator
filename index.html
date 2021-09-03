@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="CSS/style.css" />
     <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
 
+    <!-- desmos api -->
+    <script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
     <!-- Heading font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,7 +45,7 @@
   </head>
   <body>
     <h1 align="center">Scientific Calculator</h1>
-    <div class="boundary-1">
+    <div class="boundary-1" id="input-div">
       <input
         class="display-content"
         id="display"
@@ -54,10 +57,23 @@
     <br />
     <div class="menu">
       <div class="menu-item-active" id="basic-calculator">123</div>
-      <div class="menu-items" onclick="display_fx()" id="f(x)-calculator">f(x)</div>
+      <div class="menu-items" onclick="display_fx()" id="f(x)-calculator">
+        f(x)
+      </div>
+      <div
+        class="menu-items"
+        id="graphing-menu-item"
+        onclick="start_graphing()"
+      >
+        <img
+          src="Images/graphs.svg"
+          alt=""
+          style="padding-bottom: 0vw; width: 2.5vw"
+        />
+      </div>
     </div>
     <div class="grid-container" id="grid-layout-1">
-      <div class="boundary">
+      <div class="boundary" id="basic-functionality">
         <div class="calc-buttons" id="AC" onclick="all_clear()">AC</div>
         <div class="calc-buttons" id="Del" onclick="del_button()">Del</div>
         <div class="calc-buttons" id="(" onclick="input_statement('()')">
@@ -72,7 +88,7 @@
           x<sup>y</sup>
         </div>
       </div>
-      <div class="boundary">
+      <div class="boundary" id="numbers">
         <div class="calc-buttons" id="0" onclick="input_statement(0)">0</div>
         <div class="calc-buttons" id="1" onclick="input_statement(1)">1</div>
         <div class="calc-buttons" id="2" onclick="input_statement(2)">2</div>
@@ -89,7 +105,6 @@
         style="display: none; min-width: 14vw"
         id="fx_boundary"
       >
-        
         <div class="calc-buttons" id="(" onclick="input_statement('sin()')">
           Sin()
         </div>
@@ -136,20 +151,39 @@
           Floor()
         </div>
       </div>
+      <div class="center-1" id="graphing-calculator-div" style="display: none">
+      <div
+        style="width: 100%; height: 90vh"
+        id="calculator"
+      ></div></div>
     </div>
     <br />
-    <div class="center-1">
+    <div class="center-1" id="result-section-centerer">
       <div class="display-content" id="result-section"></div>
     </div>
 
     <script>
-
-      document.getElementById("basic-calculator").onclick = ()=>{
+      function start_graphing() {
+        document.getElementById("basic-functionality").style.display = "none";
+        document.getElementById("numbers").style.display = "none";
+        document.getElementById("input-div").style.display = "none";
         document.getElementById("fx_boundary").style.display = "none";
-        document.getElementById("grid-layout-1").style.gridTemplateColumns = "50% 50%";
-        document.getElementById("basic-calculator").className = "menu-item-active";
-        document.getElementById("f(x)-calculator").className = "menu-items"
+        document.getElementById("result-section-centerer").style.display = "none";
+        document.getElementById("graphing-calculator-div").style.display = "block";
+        var elt = document.getElementById("calculator");
+        var calculator = Desmos.GraphingCalculator(elt);
+        document.getElementById("grid-layout-1").style.gridTemplateColumns =
+          "100%";
       }
+
+      document.getElementById("basic-calculator").onclick = () => {
+        document.getElementById("fx_boundary").style.display = "none";
+        document.getElementById("grid-layout-1").style.gridTemplateColumns =
+          "50% 50%";
+        document.getElementById("basic-calculator").className =
+          "menu-item-active";
+        document.getElementById("f(x)-calculator").className = "menu-items";
+      };
 
       document
         .getElementById("display")
@@ -186,8 +220,9 @@
         document.getElementById("fx_boundary").style.display = "inline";
         document.getElementById("grid-layout-1").style.gridTemplateColumns =
           "33% 33% 33%";
-        document.getElementById('basic-calculator').className = "menu-items"
-        document.getElementById("f(x)-calculator").className = "menu-item-active"
+        document.getElementById("basic-calculator").className = "menu-items";
+        document.getElementById("f(x)-calculator").className =
+          "menu-item-active";
       }
 
       function all_clear() {
