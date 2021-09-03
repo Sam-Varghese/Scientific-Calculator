@@ -107,6 +107,7 @@ h1 {
   transition-duration: 0.2s;
   user-select: none;
   font-family: "Besley", serif;
+  color: black;
 }
 
 .menu-item-active {
