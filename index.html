@@ -152,10 +152,8 @@
         </div>
       </div>
       <div class="center-1" id="graphing-calculator-div" style="display: none">
-      <div
-        style="width: 100%; height: 90vh"
-        id="calculator"
-      ></div></div>
+        <div style="width: 100%; height: 90vh" id="calculator"></div>
+      </div>
     </div>
     <br />
     <div class="center-1" id="result-section-centerer">
@@ -163,17 +161,25 @@
     </div>
 
     <script>
+      var elt = document.getElementById("calculator");
+      var calculator = Desmos.GraphingCalculator(elt);
+
       function start_graphing() {
         document.getElementById("basic-functionality").style.display = "none";
         document.getElementById("numbers").style.display = "none";
         document.getElementById("input-div").style.display = "none";
         document.getElementById("fx_boundary").style.display = "none";
-        document.getElementById("result-section-centerer").style.display = "none";
-        document.getElementById("graphing-calculator-div").style.display = "block";
-        var elt = document.getElementById("calculator");
-        var calculator = Desmos.GraphingCalculator(elt);
+        document.getElementById("result-section-centerer").style.display =
+          "none";
+        document.getElementById("graphing-calculator-div").style.display =
+          "block";
+
         document.getElementById("grid-layout-1").style.gridTemplateColumns =
           "100%";
+        document.getElementById("basic-calculator").className = "menu-items";
+        document.getElementById("f(x)-calculator").className = "menu-items";
+        document.getElementById("graphing-menu-item").className =
+          "menu-item-active";
       }
 
       document.getElementById("basic-calculator").onclick = () => {
@@ -181,13 +187,16 @@
         document.getElementById("basic-functionality").style.display = "block";
         document.getElementById("numbers").style.display = "block";
         document.getElementById("input-div").style.display = "flex";
-        document.getElementById("result-section-centerer").style.display = "flex";
-        document.getElementById("graphing-calculator-div").style.display = "none";
+        document.getElementById("result-section-centerer").style.display =
+          "flex";
+        document.getElementById("graphing-calculator-div").style.display =
+          "none";
         document.getElementById("grid-layout-1").style.gridTemplateColumns =
           "50% 50%";
         document.getElementById("basic-calculator").className =
           "menu-item-active";
         document.getElementById("f(x)-calculator").className = "menu-items";
+        document.getElementById("graphing-menu-item").className = "menu-items";
       };
 
       document
@@ -223,9 +232,17 @@
 
       function display_fx() {
         document.getElementById("fx_boundary").style.display = "inline";
+        document.getElementById("basic-functionality").style.display = "block";
+        document.getElementById("result-section-centerer").style.display =
+          "flex";
+        document.getElementById("input-div").style.display = "flex";
+        document.getElementById("graphing-calculator-div").style.display =
+          "none";
+        document.getElementById("numbers").style.display = "block";
         document.getElementById("grid-layout-1").style.gridTemplateColumns =
           "33% 33% 33%";
         document.getElementById("basic-calculator").className = "menu-items";
+        document.getElementById("graphing-menu-item").className = "menu-items";
         document.getElementById("f(x)-calculator").className =
           "menu-item-active";
       }
