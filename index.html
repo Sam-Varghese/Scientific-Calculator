@@ -89,17 +89,26 @@
         <div class="calc-buttons" id="(" onclick="input_statement('tan()')">
           Tan()
         </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('cot()')">
+          Cot()
+        </div>
         <div class="calc-buttons" id="(" onclick="input_statement('cos()')">
           Cos()
         </div>
-        <div class="calc-buttons" id="(" onclick="input_statement('Cos()')">
+        <div class="calc-buttons" id="(" onclick="input_statement('sec()')">
+          Sec()
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('asin()')">
           Sin<sup>-1</sup>()
         </div>
-        <div class="calc-buttons" id="(" onclick="input_statement('Cos()')">
+        <div class="calc-buttons" id="(" onclick="input_statement('acos()')">
           Cos<sup>-1</sup>()
         </div>
-        <div class="calc-buttons" id="(" onclick="input_statement('Cos()')">
+        <div class="calc-buttons" id="(" onclick="input_statement('atan()')">
           Tan<sup>-1</sup>()
+        </div>
+        <div class="calc-buttons" id="(" onclick="input_statement('log()')">
+          Log(num, base)
         </div>
       </div>
     </div>
@@ -112,16 +121,22 @@
       document
         .getElementById("display")
         .addEventListener("input", function evaluate_expression(evt) {
+          if(isNaN(math.evaluate(
+            this.value)) == false || isNaN(math.evaluate(
+            this.value)) == infinity){
           document.getElementById("result-section").innerHTML = math.evaluate(
             this.value
-          );
+          );}
         });
 
       function input_statement(text) {
         document.getElementById("display").value += text;
+        if(isNaN(math.evaluate(
+          document.getElementById("display").value)) == false || isNaN(math.evaluate(
+          document.getElementById("display").value)) == infinity){
         document.getElementById("result-section").innerHTML = math.evaluate(
           document.getElementById("display").value
-        );
+        );}
       }
 
       function display_fx() {
@@ -139,9 +154,12 @@
         document.getElementById("display").value = document
           .getElementById("display")
           .value.slice(0, document.getElementById("display").value.length - 1);
+          if(isNaN(math.evaluate(
+          document.getElementById("display").value)) == false || isNaN(math.evaluate(
+          document.getElementById("display").value)) == infinity){
         document.getElementById("result-section").innerHTML = math.evaluate(
           document.getElementById("display").value
-        );
+        );}
       }
     </script>
   </body>
