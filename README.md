@@ -2,7 +2,7 @@
 
 <hr>
 
-<p align="center"><img src="Images/demo-image.png"></p>
+<p align="center"><img src="Images/demo-image.png" /></p>
 
 <hr>
 
