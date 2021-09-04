@@ -10,7 +10,7 @@
 
 <hr>
 
-Languages used:
+<h3>Languages used:</h3>
 
 <hr>
 
@@ -20,7 +20,7 @@ Languages used:
 
 <hr>
 
-Libraries used:
+<h3>Libraries used:</h3>
 
 <hr>
 
@@ -28,7 +28,7 @@ Libraries used:
 
 <hr>
 
-API's used:
+<h3>API's used:</h3>
 
 <hr>
 
